@@ -1,0 +1,65 @@
+﻿@model MvcMovie.Models.FilmeGeneroViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Filmes" asp-action="Index" method="get">
+    <p>
+        Título:<input type="text" name="stringDeBusca" />
+        <input type="submit" value="Buscar" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.filmes[0].titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filmes[0].lancamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filmes[0].genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filmes[0].preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filmes[0].classificacao)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.filmes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lancamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.classificacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
