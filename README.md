@@ -3,4 +3,4 @@
 ## Requisitos para rodar o app
 
 - .NET 5 ou superior instalado na máquina
-- Rode o comando "dotnet run" para executar aaplicação
+- Rode o comando "dotnet run" para executar a aplicação
